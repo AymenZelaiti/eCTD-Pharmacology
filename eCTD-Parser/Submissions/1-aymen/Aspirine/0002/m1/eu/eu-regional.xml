@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE eu:eu-backbone SYSTEM "../../util/dtd/eu-regional.dtd"[]>
+<?xml-stylesheet type="text/xsl" href="../../util/style/eu-regional.xsl"?>
+<!-- Generated 21/07/2021 16:22:42 using eCTD Parser - eCTD King -->
+<eu:eu-backbone xmlns:eu="http://europa.eu.int" xmlns:xlink="http://www.w3c.org/1999/xlink" xml:lang="en" dtd-version="3.0.1">
+  <eu-envelope>
+  </eu-envelope>
+  <m1-eu>
+  </m1-eu>
+</eu:eu-backbone>
