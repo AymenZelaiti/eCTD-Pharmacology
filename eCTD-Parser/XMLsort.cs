@@ -473,7 +473,8 @@ namespace eCTD_Parser
             }
             else
             {
-                //MessageBox.Show(seqIndexPath, "Error! File not found:");
+                
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Error! File not found')", true);
             }
             return leafID;
         }
