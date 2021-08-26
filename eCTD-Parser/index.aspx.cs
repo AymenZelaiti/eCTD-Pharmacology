@@ -870,7 +870,8 @@ namespace eCTD_Parser
 
                 catch (Exception e)
                 {
-                    //MessageBox.Show(e.ToString(), "The indexing process failed");
+                   
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('The indexing process failed')", true);
                     //to add sweet alert to show errors
 
                 }
@@ -5151,71 +5152,7 @@ namespace eCTD_Parser
                 sr.WriteLine("      xmlns:xlink=\"http://www.w3c.org/1999/xlink\"");
                 sr.WriteLine("      xml:lang=\"en\" dtd-version=\"3.0.1\">");
                 sr.WriteLine("  <eu-envelope>");
-
-                //for test check boxes
-                //foreach (Control control in this.Controls)
-                //{
-                //    if (control is CheckBox)
-                //    {
-                //        if (((CheckBox)control).Checked == true)
-                //        {
-                //            if (((CheckBox)control).Text.ToString() == "EMA" || ((CheckBox)control).Text.ToString() == "EDQM")
-                //            {
-                //                envelopeCountry = ((CheckBox)control).Text.ToString();
-                //            }
-                //            else
-                //            {
-                //                envelopeCountry = (((CheckBox)control).Tag.ToString().Substring(0, 2));
-                //            }
-                //            agency = (((CheckBox)control).Text.ToString());
-                //
-                //            foreach (Control control2 in this.Controls)
-                //            {
-                //                if ((control2 is TextBox) && ((((TextBox)control2).Tag) == (((CheckBox)control).Tag)))
-                //                {
-                //                    if ((((TextBox)control2).Name) == ("textBox" + (((TextBox)control2).Tag) + "App"))
-                //                    {
-                //                        applicant = (((TextBox)control2).Text);
-                //                    }
-                //                    else
-                //                    {
-                //                        inventedName = (((TextBox)control2).Text);
-                //                    }
-                //                }
-                //            }
-                //
-                //            sr.WriteLine("      <envelope country=\"{0}\">", envelopeCountry.ToLower());
-                //            sr.WriteLine("        <identifier>{0}</identifier>", submissionIdentifier);
-                //            if (comboBoxMode.Enabled == true)
-                //            {
-                //                sr.WriteLine("          <submission type=\"{0}\" mode=\"{1}\">", submType, applicationMode);
-                //            }
-                //            else
-                //            {
-                //                sr.WriteLine("          <submission type=\"{0}\">", submType);
-                //            }
-                //            if (appHighLevelNo != null && textBoxNumber.Enabled == true)
-                //            {
-                //                sr.WriteLine("              <number>{0}</number>", appHighLevelNo);
-                //            }
-                //            sr.WriteLine("              <procedure-tracking>");
-                //            sr.WriteLine("                  <number>{0}</number>", trackingNumber);
-                //            sr.WriteLine("              </procedure-tracking>");
-                //            sr.WriteLine("          </submission>");
-                //            sr.WriteLine("          <submission-unit type=\"{0}\"/>", comboBoxSubmUnit.Text);
-                //            sr.WriteLine("          <applicant>{0}</applicant>", applicant);
-                //            sr.WriteLine("          <agency code=\"{0}\"/>", agency);
-                //            sr.WriteLine("          <procedure type=\"{0}\"/>", procType);
-                //            sr.WriteLine("          <invented-name>{0}</invented-name>", inventedName);
-                //            sr.WriteLine("          <inn>{0}</inn>", INN);
-                //            sr.WriteLine("          <sequence>{0}</sequence>", sequence);
-                //            sr.WriteLine("          <related-sequence>{0}</related-sequence>", relSeq);
-                //            sr.WriteLine("          <submission-description>{0}</submission-description>", submDescr);
-                //            sr.WriteLine("      </envelope>");
-                //        }
-                //    }
-                //}
-                //end test chrck boxes
+                               
 
                 sr.WriteLine("  </eu-envelope>");
 
@@ -5800,13 +5737,9 @@ namespace eCTD_Parser
                 //call m1sort method in XMLsort class to put Module 1.10 paediatrics in its right place                
                 XMLsort sortingHat = new XMLsort();
                 sortingHat.m1sort(xmlOutput);
+                //refreshing TreeView
                 Page.ClientScript.RegisterStartupScript(GetType(), "CallMyFunction", "populateTree('" + SeqNumber + "', '" + ProductName + "')", true);
-                //DialogResult resultm1;
-                //resultm1 = MessageBox.Show(xmlOutput + "\n Open file?", "Module 1 indexing completed", MessageBoxButtons.YesNo);
-                //if (resultm1 == DialogResult.Yes)
-                //{
-                //    System.Diagnostics.Process.Start(xmlOutput);
-                //}
+                
             }
 
             catch (Exception f)
