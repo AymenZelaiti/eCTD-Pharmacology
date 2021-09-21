@@ -209,7 +209,7 @@ namespace eCTD_Parser
         }
 
         [WebMethod(EnableSession = true)]
-        public static string GetChildren(string path, string seq)
+        public static string GetChildren(string path, string seq, string prod)
         {
             string JsonStr = string.Empty;
 
@@ -217,7 +217,7 @@ namespace eCTD_Parser
             string UserName = HttpContext.Current.Session["user"].ToString().ToLower();
 
             string Repository = UserId + "-" + UserName;
-            string ProductName = "Aspirine";
+            string ProductName = prod;
             string SeqDir = HostingEnvironment.MapPath(@"~\Submissions\" + Repository + @"\" + ProductName + @"\" + seq + @"\" + path + @"\");
             string[] FolderArray = Directory.GetDirectories(SeqDir, "*");
             string[] FileArray = Directory.GetFiles(SeqDir, "*");
